@@ -24,7 +24,28 @@ class NewApiActivity : AppCompatActivity() {
         binding.btnSendResult.setOnClickListener {
             requestActivity(Intent(this@NewApiActivity, ResultActivity::class.java))
         }
+
+        binding.btnImagePick.setOnClickListener {
+            pickImages.launch("image/*")
+        }
+
+        binding.btnLocationPermission.setOnClickListener {
+            locationPermission.launch(android.Manifest.permission.ACCESS_FINE_LOCATION)
+        }
     }
+
+    private val requestActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+        Toast.makeText(this@NewApiActivity, "resultCode: ${it.resultCode}", Toast.LENGTH_SHORT).show()
+    }
+
+    private val pickImages = registerForActivityResult(ActivityResultContracts.GetContent()){
+        Toast.makeText(this@NewApiActivity, "URI: $it", Toast.LENGTH_SHORT).show()
+    }
+
+    private val locationPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()){
+        Toast.makeText(this@NewApiActivity, "PERMISSION ENABLED: $it", Toast.LENGTH_SHORT).show()
+    }
+
 
     /* First is taken by CreateIntent() as a parameter, Second is taken as the return of ParseResult */
     private val customContract = object:ActivityResultContract<String, ActivityResult>(){
@@ -43,11 +64,7 @@ class NewApiActivity : AppCompatActivity() {
         }
     }
 
-    private val request = registerForActivityResult(customContract){
-        Toast.makeText(this@NewApiActivity, "resultCode: ${it.resultCode}", Toast.LENGTH_SHORT).show()
-    }
-
-    private val requestActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+    private val customActivity = registerForActivityResult(customContract){
         Toast.makeText(this@NewApiActivity, "resultCode: ${it.resultCode}", Toast.LENGTH_SHORT).show()
     }
 }

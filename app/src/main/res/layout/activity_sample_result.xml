@@ -13,4 +13,15 @@
         android:layout_height="wrap_content"
         android:text="GO TO RESULT ACTIVITY"/>
 
+    <Button
+        android:id="@+id/btnImagePick"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ImagePick"/>
+
+    <Button
+        android:id="@+id/btnLocationPermission"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Location Permission"/>
 </LinearLayout>
