@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".NewApiActivity">
+    tools:context=".ResultActivity">
 
     <Button
-        android:id="@+id/btnSendResult"
+        android:id="@+id/btn_result_back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="GO TO RESULT ACTIVITY"/>
+        android:text="RETURN RESULT OK"/>
 
 </LinearLayout>
