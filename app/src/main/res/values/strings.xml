@@ -1,0 +1,7 @@
+<resources>
+	<string name="app_name">ActivityResult</string>
+
+	<!-- MainActivity -->
+	<string name="new_activity_result">New Activity Result</string>
+	<string name="legacy_activity_result">Legacy Activity Result</string>
+</resources>
