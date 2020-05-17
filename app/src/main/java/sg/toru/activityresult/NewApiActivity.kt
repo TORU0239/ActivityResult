@@ -9,7 +9,7 @@ import androidx.activity.invoke
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContract
-import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.result.contract.ActivityResultContracts.*
 import sg.toru.activityresult.databinding.ActivitySampleResultBinding
 
 class NewApiActivity : AppCompatActivity() {
@@ -34,15 +34,15 @@ class NewApiActivity : AppCompatActivity() {
         }
     }
 
-    private val requestActivity = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+    private val requestActivity = registerForActivityResult(StartActivityForResult()){
         Toast.makeText(this@NewApiActivity, "resultCode: ${it.resultCode}", Toast.LENGTH_SHORT).show()
     }
 
-    private val pickImages = registerForActivityResult(ActivityResultContracts.GetContent()){
+    private val pickImages = registerForActivityResult(GetContent()){
         Toast.makeText(this@NewApiActivity, "URI: $it", Toast.LENGTH_SHORT).show()
     }
 
-    private val locationPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()){
+    private val locationPermission = registerForActivityResult(RequestPermission()){
         Toast.makeText(this@NewApiActivity, "PERMISSION ENABLED: $it", Toast.LENGTH_SHORT).show()
     }
 
