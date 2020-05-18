@@ -32,6 +32,16 @@ class NewApiActivity : AppCompatActivity() {
         binding.btnLocationPermission.setOnClickListener {
             locationPermission.launch(android.Manifest.permission.ACCESS_FINE_LOCATION)
         }
+
+        binding.btnMultiplePermission.setOnClickListener {
+            multiplePermission.launch(
+                arrayOf(
+                    android.Manifest.permission.CAMERA,
+                    android.Manifest.permission.READ_EXTERNAL_STORAGE,
+                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+                )
+            )
+        }
     }
 
     private val requestActivity = registerForActivityResult(StartActivityForResult()){
@@ -43,6 +53,10 @@ class NewApiActivity : AppCompatActivity() {
     }
 
     private val locationPermission = registerForActivityResult(RequestPermission()){
+        Toast.makeText(this@NewApiActivity, "PERMISSION ENABLED: $it", Toast.LENGTH_SHORT).show()
+    }
+
+    private val multiplePermission = registerForActivityResult(RequestMultiplePermissions()){
         Toast.makeText(this@NewApiActivity, "PERMISSION ENABLED: $it", Toast.LENGTH_SHORT).show()
     }
 

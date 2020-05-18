@@ -24,4 +24,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Location Permission"/>
+
+    <Button
+        android:id="@+id/btnMultiplePermission"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Multiple Permission"/>
 </LinearLayout>
